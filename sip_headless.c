@@ -270,11 +270,11 @@ static void do_hangup(char *args) {
 
 /* devs — Audio-Geräte auflisten */
 static void do_devs(void) {
-  pjmedia_snd_dev_info info[MAX_AUDIO_DEVS];
+  pjmedia_aud_dev_info info[MAX_AUDIO_DEVS];
   unsigned count = MAX_AUDIO_DEVS;
   unsigned i;
-
-  if (pjsua_enum_snd_devs(info, &count) != PJ_SUCCESS) {
+  if(pjsua_enum_aud_devs(info, &count) != PJ_SUCCESS) {
+//  if (pjsua_enum_snd_devs(info, &count) != PJ_SUCCESS) {
     out("ERR Aufzaehlung der Geraete fehlgeschlagen\n");
     return;
   }
